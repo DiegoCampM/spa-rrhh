@@ -1,0 +1,50 @@
+{
+  "personaList": [
+    {
+      "personaName": "Diego",
+      "surname": "Campusano",
+      "date": "2022-05-01T04:00:00.000Z",
+      "salud": "Fonasa",
+      "afp": "CAPITAL",
+      "cargas": 100,
+      "cargo": "IT",
+      "contrato": "Soporte",
+      "horas": "42",
+      "id": 1
+    },
+    {
+      "personaName": "Alejandro",
+      "surname": "Perez",
+      "date": "2022-06-24T04:00:00.000Z",
+      "salud": "Isapre",
+      "afp": "HABITAT",
+      "cargas": 12,
+      "cargo": "Jefatura",
+      "contrato": "Part Time",
+      "horas": "7",
+      "id": 3
+    },
+    {
+      "personaName": "Juanito",
+      "surname": "Casanova",
+      "date": "2022-11-05T03:00:00.000Z",
+      "salud": "Isapre",
+      "afp": "UNO",
+      "cargas": 1,
+      "cargo": "Administracion",
+      "contrato": "Plazo Fijo",
+      "horas": 12,
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

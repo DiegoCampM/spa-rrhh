@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>supervised_user_circle</mat-icon>
+    </button>
+    <span>Recursos Humanos SPA</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button color="warn" (click)="openDialog()">Añadir Persona</button>&nbsp;&nbsp;
+  </mat-toolbar>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+    <div style="margin-top: 10px">
+      <mat-form-field appearance="standard">
+        <mat-label>Filtro</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ej. Diego" #input>
+      </mat-form-field>
+      
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+      
+          <!-- PersonaName Column -->
+          <ng-container matColumnDef="personaName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+            <td mat-cell *matCellDef="let row"> {{row.personaName}} </td>
+          </ng-container>
+          
+          <!-- surname Column -->
+          <ng-container matColumnDef="surname">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </th>
+            <td mat-cell *matCellDef="let row"> {{row.surname}} </td>
+          </ng-container>
+              
+          <!-- date Column -->
+          <ng-container matColumnDef="date"> 
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Nacimiento </th>
+            <td mat-cell *matCellDef="let row"> {{row.date | date}} </td>
+          </ng-container>
+      
+          <!-- salud Column -->
+          <ng-container matColumnDef="salud">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Provision Salud </th>
+            <td mat-cell *matCellDef="let row"> {{row.salud}} </td>
+          </ng-container>
+
+          <!-- afp Column -->
+          <ng-container matColumnDef="afp">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>AFP</th>
+            <td mat-cell *matCellDef="let row"> {{row.afp}} </td>
+          </ng-container>
+
+          <!-- cargas Column -->
+          <ng-container matColumnDef="cargas">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> N° Cargas </th>
+            <td mat-cell *matCellDef="let row"> {{row.cargas}} </td>
+          </ng-container>
+          
+          <!-- cargo Column -->
+          <ng-container matColumnDef="cargo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cargo </th>
+            <td mat-cell *matCellDef="let row"> {{row.cargo}} </td>
+          </ng-container>
+          
+          <!-- contrato Column -->
+          <ng-container matColumnDef="contrato">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Contrato </th>
+            <td mat-cell *matCellDef="let row"> {{row.contrato}} </td>
+          </ng-container>        
+          
+          <!-- horas Column -->
+          <ng-container matColumnDef="horas">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Horas Laborales </th>
+            <td mat-cell *matCellDef="let row"> {{row.horas}} </td>
+          </ng-container>     
+
+          <!-- Action Column -->
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Acción </th>
+            <td mat-cell *matCellDef="let row">
+                <button mat-icon-button (click)="editPersona(row)" color="primary">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button (click)="deletePersona(row.id)" color="warn">
+                  <mat-icon>delete</mat-icon>
+              </button>
+              <button mat-raised-button color="primary" (click)="openLiquidacion(row)" >
+               liquidacion
+              </button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Ningun dato encontrado"{{input.value}}"</td>
+          </tr>
+        </table>
+      
+      </div>
+    </div>
+  </div>
+</body>
+</html>

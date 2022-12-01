@@ -1,0 +1,97 @@
+<h1 mat-dialog-title>Persona</h1>
+<div mad-dialog-content>
+    <form [formGroup]="personaForm">
+
+    <!-- Grupo 1  -->      
+    <div class="row col-12">
+        <!-- Editar Nombre  -->        
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="personaName"  matInput placeholder="Ingresa tu Nombre">
+            </mat-form-field>
+        </div>
+            <!-- Editar Apellido  -->
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input formControlName="surname" matInput placeholder="Ingresa tu Apellido">
+            </mat-form-field>
+        </div>
+    </div> 
+
+
+    <!-- Grupo 2  -->
+    <div class="row col-12">
+        <!-- Editar Provision de Salud  -->
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Provision de Salud</mat-label>
+                <mat-select formControlName="salud" [(ngModel)]="salud" placeholder="Selecicona Provision de Salud" required>
+                    <mat-option value="0.07">Fonasa</mat-option>
+                    <mat-option value="0.07">Isapre</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+            <!-- Seleccionar Tipo de Contrato  -->
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Tipo de Contrato</mat-label>
+                <mat-select formControlName="contrato" placeholder="Categoria">
+                    <mat-option value="1">Indefinido</mat-option>
+                    <mat-option value="2">Plazo Fijo</mat-option>
+                    <mat-option value="3">Part Time</mat-option>
+                    <mat-option value="4">Por Honorarios</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    
+    
+    <!-- Grupo 3  -->
+    <div class="row col-12">
+        <!-- Editar  AFP -->
+        <div class="col-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Admin. de Fondos de Pensiones</mat-label>
+                <mat-select formControlName="afp"  [(ngModel)]="afp" placeholder="Selecciona" required>
+                    <mat-option value="0.0144">CAPITAL</mat-option>
+                    <mat-option value="0.0116">PLANVITAL</mat-option>
+                    <mat-option value="0.0146">PROVIDA</mat-option>
+                    <mat-option value="0.0127">HABITAT</mat-option>
+                    <mat-option value="0.0144">CUPRUM</mat-option>
+                    <mat-option value="0.0058">MODELO</mat-option>
+                    <mat-option value="0.0069">UNO</mat-option>
+                </mat-select>
+              </mat-form-field>    
+        </div>
+            <!-- Editar Sueldo Base  -->
+        <div class="col-8">
+            <mat-form-field appearance="outline">
+                <mat-label>Sueldo Base </mat-label>
+                <input formControlName="sueldo" [(ngModel)]="sueldo" matInput type="number" placeholder="Sin Puntos" required>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row col-12">
+        <!-- Editar Nombre  -->        
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+            <input formControlName= "liquido" matInput placeholder="Sueldo Liquido" readonly><p>{{liquido}}</p>
+        </mat-form-field>
+      </div>
+
+        <!-- Editar Apellido  -->
+      <div class="col-6">
+        <mat-form-field appearance="outline">
+          <input formControlName= "descuentos" matInput placeholder="Descuentos" readonly><p>{{descuentos}}</p>
+        </mat-form-field>
+      </div>
+    </div> 
+
+    <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
+        <button style="margin-left: 8px ;" mat-raised-button color="primary" (click)="calcularLiquidacion()">Calcular</button>
+      </div>
+          

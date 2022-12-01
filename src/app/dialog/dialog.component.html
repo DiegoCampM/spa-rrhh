@@ -1,0 +1,102 @@
+<h1 mat-dialog-title>Persona</h1>
+<div mad-dialog-content>
+    <form [formGroup]="personaForm">
+
+      <div class="row col-12">
+          <!-- Editar Nombre  -->        
+        <div class="col-6">
+          <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input formControlName= "personaName" matInput placeholder="Ingresa tu Nombre">
+          </mat-form-field>
+        </div>
+
+          <!-- Editar Apellido  -->
+        <div class="col-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Apellido</mat-label>
+            <input formControlName= "surname" matInput placeholder="Ingresa tu Apellido">
+          </mat-form-field>
+        </div>
+      </div> 
+
+        <!-- Editar fecha  -->
+      <mat-form-field appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input formControlName= "date"  matInput [matDatepicker]="picker">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+
+      <div class="row col-12">
+          <!-- Editar Provision de Salud  -->
+        <div class="col-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Provision de Salud</mat-label>
+            <mat-select formControlName= "salud" placeholder="Selecicona Provision de Salud">
+                <mat-option value="Fonasa">Fonasa</mat-option>
+                <mat-option value="Isapre">Isapre</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+           <!-- Editar AFP  -->
+          <mat-form-field appearance="outline">
+            <mat-label>Admin. de Fondos de Pensiones</mat-label>
+            <mat-select formControlName= "afp" placeholder="Selecciona">
+                <mat-option value="CAPITAL">CAPITAL</mat-option>
+                <mat-option value="PLANVITAL">PLANVITAL</mat-option>
+                <mat-option value="PROVIDA">PROVIDA</mat-option>
+                <mat-option value="HABITAT">HABITAT</mat-option>
+                <mat-option value="CUPRUM">CUPRUM</mat-option>
+                <mat-option value="MODELO">MODELO</mat-option>
+                <mat-option value="UNO">UNO</mat-option>
+            </mat-select>
+          </mat-form-field>               
+        </div>
+      </div>
+
+        <!-- Editar Numero de Cargas  -->
+      <mat-form-field appearance="outline">
+          <mat-label>Cargas</mat-label>
+          <input formControlName= "cargas" matInput type="number" placeholder="Ingresa tu Numero de Cargas">
+      </mat-form-field>
+
+      <!-- Editar Cargo  -->
+      <mat-form-field appearance="outline">
+        <mat-label>Indica tu cargo</mat-label>
+        <mat-select formControlName= "cargo" placeholder="Selecciona">
+            <mat-option value="Jefatura">Jefatura</mat-option>
+            <mat-option value="Gerencia">Gerencia</mat-option>
+            <mat-option value="Administracion">Administracion</mat-option>
+            <mat-option value="Soporte">Soporte</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      
+      <!-- Seleccionar Tipo de Contrato  -->
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo de Contrato</mat-label>
+        <mat-select formControlName= "contrato" placeholder="Selecciona">
+            <mat-option value="Indefinido">Indefinido</mat-option>
+            <mat-option value="Plazo Fijo">Plazo Fijo</mat-option>
+            <mat-option value="Part Time">Part Time</mat-option>
+            <mat-option value="Por Honorarios">Por Honorarios</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+        <!-- Editar Numero de Horas Laborales  -->
+      <mat-form-field appearance="outline">
+        <mat-label>Horas Laborales Semanales</mat-label>
+        <input formControlName= "horas" matInput type="number | percent" placeholder="Ingresa el Numero de horas semanales">
+      </mat-form-field>
+      
+
+      <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
+        <button style="margin-left: 8px ;" mat-raised-button color="primary" (click)="addPersona()">{{actionBtn}}</button>
+      </div>
+          
